@@ -56,7 +56,7 @@ public class UpdateDialogFragment extends DialogFragment implements View.OnClick
     /**
      * 回调
      */
-    private ServiceConnection conn = new DownloadServiceConnection();
+    private ServiceConnection conn = null;
     private LinearLayout mLlClose;
     // 默认色
     private int mDefaultColor = 0xffe94339;
@@ -300,6 +300,7 @@ public class UpdateDialogFragment extends DialogFragment implements View.OnClick
      * 开启后台服务下载
      */
     private void downloadApp() {
+        conn = new DownloadServiceConnection();
         //使用ApplicationContext延长他的生命周期
         DownloadService.bindService(getActivity().getApplicationContext(), conn);
     }
@@ -335,9 +336,8 @@ public class UpdateDialogFragment extends DialogFragment implements View.OnClick
 
                 @Override
                 public void onError(String msg) {
-                    if (!UpdateDialogFragment.this.isRemoving()) {
-                        dismissAllowingStateLoss();
-                    }
+                    mNumberProgressBar.setVisibility(View.GONE);
+                    mUpdateOkButton.setVisibility(View.VISIBLE);
                 }
             });
         }
@@ -367,6 +367,7 @@ public class UpdateDialogFragment extends DialogFragment implements View.OnClick
 
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
+
         }
     }
 }

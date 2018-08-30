@@ -126,7 +126,8 @@ public class DownloadService extends Service {
     private void stop(String contentText) {
         if (mBuilder != null) {
             mBuilder.setContentTitle(AppUpdateUtils.getAppName(DownloadService.this))
-                    .setContentText(contentText);
+                    .setContentText(contentText)
+                    .setProgress(0, 0, false);
             Notification notification = mBuilder.build();
             notification.flags = Notification.FLAG_AUTO_CANCEL;
             mNotificationManager.notify(NOTIFY_ID, notification);
@@ -203,10 +204,8 @@ public class DownloadService extends Service {
                 if (mCallBack != null) {
                     mCallBack.onError(error);
                 }
-            } else {
-                mNotificationManager.cancel(NOTIFY_ID);
             }
-            close();
+            stop(error);
         }
 
         @Override

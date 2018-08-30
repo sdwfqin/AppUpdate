@@ -16,9 +16,6 @@ import android.util.Log;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 
 /**
  * Created by Vector

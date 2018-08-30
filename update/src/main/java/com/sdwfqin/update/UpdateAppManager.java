@@ -110,7 +110,7 @@ public class UpdateAppManager {
         long versionCode = 0;
         try {
             PackageInfo packageInfo = mActivity.getPackageManager().getPackageInfo(mActivity.getPackageName(), 0);
-            versionCode = packageInfo.getLongVersionCode();
+            versionCode = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e) {
             Log.i(TAG, "checkNewApp: " + e.getMessage());
         }
