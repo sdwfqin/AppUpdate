@@ -9,6 +9,7 @@ import com.blankj.utilcode.util.SDCardUtils;
 import com.sdwfqin.appupdatedemo.R;
 import com.sdwfqin.appupdatedemo.http.UpdateAppHttpUtil;
 import com.sdwfqin.quicklib.base.BaseActivity;
+import com.sdwfqin.update.DefaultHttpManager;
 import com.sdwfqin.update.UpdateAppManager;
 import com.sdwfqin.update.model.UpdateVersionModel;
 import com.sdwfqin.update.utils.AppUpdateUtils;
@@ -55,6 +56,7 @@ public class MainActivity extends BaseActivity {
                         Toast.makeText(MainActivity.this, "已授权", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(MainActivity.this, "未授权", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 }));
     }
@@ -72,7 +74,7 @@ public class MainActivity extends BaseActivity {
                 .setUpdateModel(mUpdateVersionModel)
                 // 仅Wifi更新
                 //实现httpManager接口的对象
-                .setHttpManager(new UpdateAppHttpUtil())
+                .setHttpManager(new DefaultHttpManager())
                 .setFileProvider("com.sdwfqin.appupdatedemo.fileprovider")
                 .setSavaPath(SDCardUtils.getSDCardPaths().get(0) + "/AppUpdate/")
                 .build()

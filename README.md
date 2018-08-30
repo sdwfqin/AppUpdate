@@ -4,7 +4,7 @@
 ## 目录
 
 * [功能介绍](#功能介绍)
-* [TODO](#TODO)
+* [TODO](#todo)
 * [License](#license)
 
 ## 功能介绍
