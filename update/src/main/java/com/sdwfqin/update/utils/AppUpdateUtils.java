@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.v4.content.FileProvider;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -23,38 +22,18 @@ import java.math.BigDecimal;
  */
 public class AppUpdateUtils {
 
-    private static final String TAG = "AppUpdateUtils";
-
-    public static boolean installApp(Context context, File appFile, String fileProvider) {
-        try {
-            Intent intent = getInstallAppIntent(context, appFile, fileProvider);
-            if (context.getPackageManager().queryIntentActivities(intent, 0).size() > 0) {
-                context.startActivity(intent);
-            }
-            return true;
-        } catch (Exception e) {
-            Log.i(TAG, "installApp: " + e.getMessage());
+    public static void installApp(Context context, String appPath, String fileProvider) {
+        File file = new File(appPath);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) { // 7.0+以上版本
+            Uri apkUri = FileProvider.getUriForFile(context, fileProvider, file);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+        } else {
+            intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
         }
-        return false;
-    }
-
-    public static Intent getInstallAppIntent(Context context, File appFile, String fileProvider) {
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                //区别于 FLAG_GRANT_READ_URI_PERMISSION 跟 FLAG_GRANT_WRITE_URI_PERMISSION， URI权限会持久存在即使重启，直到明确的用 revokeUriPermission(Uri, int) 撤销。 这个flag只提供可能持久授权。但是接收的应用必须调用ContentResolver的takePersistableUriPermission(Uri, int)方法实现
-                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-                Uri fileUri = FileProvider.getUriForFile(context, fileProvider, appFile);
-                intent.setDataAndType(fileUri, "application/vnd.android.package-archive");
-            } else {
-                intent.setDataAndType(Uri.fromFile(appFile), "application/vnd.android.package-archive");
-            }
-            return intent;
-        } catch (Exception e) {
-            Log.i(TAG, "getInstallAppIntent: " + e.getMessage());
-        }
-        return null;
+        context.startActivity(intent);
     }
 
     public static PackageInfo getPackageInfo(Context context) {
@@ -113,6 +92,7 @@ public class AppUpdateUtils {
 
     /**
      * 求百分比
+     *
      * @return
      */
     public static double accuracy(double num, double total, int scale) {

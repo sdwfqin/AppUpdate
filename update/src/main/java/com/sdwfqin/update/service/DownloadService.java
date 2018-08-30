@@ -215,7 +215,7 @@ public class DownloadService extends Service {
             }
             //App前台运行
             mNotificationManager.cancel(NOTIFY_ID);
-//            AppUpdateUtils.installApp(DownloadService.this, file, mFileProvider);
+            AppUpdateUtils.installApp(DownloadService.this, path, mFileProvider);
 
             close();
         }

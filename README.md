@@ -15,8 +15,6 @@
 
 ## TODO
 
-- 默认下载
-- 安装App
 - 安装包MD5校验
 
 ## License

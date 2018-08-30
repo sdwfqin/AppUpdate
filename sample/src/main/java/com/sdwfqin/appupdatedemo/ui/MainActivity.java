@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity {
         mUpdateVersionModel.setApkMd5("b97bea014531123f94c3ba7b7afbaad2");
         mUpdateVersionModel.setApkVersionName("3.0.0");
         mUpdateVersionModel.setApkVersionCode(1024);
-        mUpdateVersionModel.setApkUrl("http://cdn.qmuiteam.com/download/android/latest");
+        mUpdateVersionModel.setApkUrl("http://7xvtvi.com1.z0.glb.clouddn.com/app-release.apk");
         mUpdateVersionModel.setUpdateTitle("更新测试");
         mUpdateVersionModel.setUpdateDes("1，添加删除信用卡接口。\r\n2，添加vip认证。\r\n3，区分自定义消费，一个小时不限制。\r\n4，添加放弃任务接口，小时内不生成。\r\n5，消费任务手动生成。");
         mUpdateVersionModel.setConstraint(false);

@@ -8,6 +8,9 @@
             name="Download"
             path=""/>
     </paths>
+    <external-files-path name="name" path="AppUpdate" />
+    <external-path name="name" path="AppUpdate" />
+
     <!-- /storage/emulated/0/Download/${applicationId}/.beta/apk-->
     <external-path
         name="beta_external_path"
