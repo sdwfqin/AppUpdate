@@ -98,6 +98,10 @@
     ``` gradle
     implementation 'com.liulishuo.filedownloader:library:1.7.5'
     ```
+    
+4. 如果在Android P中出现`cleartext traffic permitted`错误
+
+    可参考Demo与[stackoverflow](https://stackoverflow.com/questions/51770323/how-to-solve-android-p-downloadmanager-stopping-with-cleartext-http-traffic-to)中的解决方案。
 
 ## 效果图
 
