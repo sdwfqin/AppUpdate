@@ -93,7 +93,7 @@
 
 3. 关于默认的Apk下载
 
-    默认的Apk下载`DefaultHttpManager`为可选，**如需使用需添加下面的依赖,并且在`Application`中初始化下载`FileDownloader.setupOnApplicationOnCreate(this);`**。如果自行实现下载接口，可参考`DefaultHttpManager`，新建一个继承`HttpManager`的接口实现对应方法即可，**注意，请务必确保回调接口在主线程中掉用**。
+    默认的Apk下载`DefaultHttpManager`为可选，**如需使用需添加下面的依赖,并且在`Application`中初始化下载`FileDownloader.setupOnApplicationOnCreate(this);`**。如果自行实现下载接口，可参考`DefaultHttpManager`，新建一个类实现`HttpManager`中的方法即可，**注意，请务必确保回调接口在主线程中掉用**。
 
     ``` gradle
     implementation 'com.liulishuo.filedownloader:library:1.7.5'
