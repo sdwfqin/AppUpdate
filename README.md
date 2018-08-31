@@ -103,10 +103,6 @@
 
 ![](/images/i_01.png)
 
-![](/images/i_02.png)
-
-![](/images/i_03.png)
-
 ## TODO
 
 - 安装包MD5校验
