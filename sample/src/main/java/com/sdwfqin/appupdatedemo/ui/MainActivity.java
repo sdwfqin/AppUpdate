@@ -68,12 +68,11 @@ public class MainActivity extends BaseActivity {
         mUpdateVersionModel.setConstraint(false);
         new UpdateAppManager
                 .Builder()
-                //当前Activity
+                // 当前Activity
                 .setActivity(this)
-                //更新地址
+                // 更新地址
                 .setUpdateModel(mUpdateVersionModel)
-                // 仅Wifi更新
-                //实现httpManager接口的对象
+                // 实现httpManager接口的对象
                 .setHttpManager(new DefaultHttpManager())
                 .setFileProvider("com.sdwfqin.appupdatedemo.fileprovider")
                 .setSavaPath(SDCardUtils.getSDCardPaths().get(0) + "/AppUpdate/")
@@ -88,12 +87,11 @@ public class MainActivity extends BaseActivity {
         mUpdateVersionModel.setConstraint(true);
         new UpdateAppManager
                 .Builder()
-                //当前Activity
+                // 当前Activity
                 .setActivity(this)
-                //更新地址
+                // 更新地址
                 .setUpdateModel(mUpdateVersionModel)
-                // 仅Wifi更新
-                //实现httpManager接口的对象
+                // 实现httpManager接口的对象
                 .setHttpManager(new UpdateAppHttpUtil())
                 .setFileProvider("com.sdwfqin.appupdatedemo.fileprovider")
                 .setSavaPath(SDCardUtils.getSDCardPaths().get(0) + "/AppUpdate/")

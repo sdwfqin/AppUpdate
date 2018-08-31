@@ -4,7 +4,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0-rc02'
+        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.novoda:bintray-release:0.8.1'
     }
 }
 allprojects {
@@ -14,5 +15,16 @@ allprojects {
         mavenCentral()
         maven { url "https://www.jitpack.io" }
     }
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet') //忽略javadoc错误
+        options {
+            encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
+    }
 }
 
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
