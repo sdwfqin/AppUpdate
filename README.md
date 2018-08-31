@@ -101,11 +101,11 @@
 
 ## 效果图
 
-![普通更新](/images/i_01.png)
+![](/images/i_01.png)
 
-![强制更新](/images/i_02.png)
+![](/images/i_02.png)
 
-![强制更新](/images/i_03.png)
+![](/images/i_03.png)
 
 ## TODO
 
