@@ -21,7 +21,7 @@
 1. Gradle
 
     ``` gradle
-    implementation 'com.sdwfqin.quicklib:update:1.0.0'
+    implementation 'com.sdwfqin.quicklib:update:1.0.1'
     ```
 2. eclipse
 
@@ -86,8 +86,8 @@
 
         ``` xml
         <paths>
-            <external-files-path name="DownloadApk" path="AppUpdate" />
-            <external-path name="DownloadApk" path="AppUpdate" />
+            <external-files-path name="name" path="AppUpdate" />
+            <external-path name="name" path="AppUpdate" />
         </paths>
         ```
 
