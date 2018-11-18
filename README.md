@@ -21,7 +21,7 @@
 1. Gradle
 
     ``` gradle
-    implementation 'com.sdwfqin.quicklib:update:1.0.1'
+    implementation 'com.sdwfqin.quicklib:update:1.0.2'
     ```
 2. eclipse
 
