@@ -1,5 +1,6 @@
 package com.sdwfqin.appupdatedemo.ui;
 
+import android.Manifest;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,9 +15,6 @@ import com.sdwfqin.update.UpdateAppManager;
 import com.sdwfqin.update.model.UpdateVersionModel;
 import com.sdwfqin.update.utils.AppUpdateUtils;
 import com.sdwfqin.update.utils.DrawableUtil;
-import com.tbruyelle.rxpermissions2.RxPermissions;
-
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends BaseActivity {
 
@@ -35,7 +33,19 @@ public class MainActivity extends BaseActivity {
         ImageView im = (ImageView) findViewById(R.id.iv);
         im.setImageBitmap(AppUpdateUtils.drawableToBitmap(AppUpdateUtils.getAppIcon(this)));
 
-        getPermission();
+        String[] perms = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        checkPermissions(perms, true, true, new OnPermissionCallback() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onError() {
+                Toast.makeText(MainActivity.this, "未授权", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
 
         mUpdateVersionModel = new UpdateVersionModel();
         mUpdateVersionModel.setApkMd5("b97bea014531123f94c3ba7b7afbaad2");
@@ -46,19 +56,6 @@ public class MainActivity extends BaseActivity {
         mUpdateVersionModel.setUpdateDes("1，添加删除信用卡接口。\r\n2，添加vip认证。\r\n3，区分自定义消费，一个小时不限制。\r\n4，添加放弃任务接口，小时内不生成。\r\n5，消费任务手动生成。");
         mUpdateVersionModel.setConstraint(false);
         mUpdateVersionModel.setApkSize("5M");
-    }
-
-    public void getPermission() {
-        addSubscribe(new RxPermissions(this)
-                .request(WRITE_EXTERNAL_STORAGE)
-                .subscribe(aBoolean -> {
-                    if (aBoolean) {
-                        Toast.makeText(MainActivity.this, "已授权", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(MainActivity.this, "未授权", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                }));
     }
 
     /**

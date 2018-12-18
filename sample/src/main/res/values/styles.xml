@@ -1,11 +1,30 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="QMUI.Compat.NoActionBar">
+
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+
+        <!--滑动返回用-->
+        <item name="android:windowIsTranslucent">true</item>
+
+        <!-- 配置qmui提供的theme -->
+        <item name="qmui_config_color_blue">@color/colorPrimary</item>
+        <item name="QMUITopBarStyle">@style/QDTopBar</item>
     </style>
+
+    <!--**********************************************
+        *             qmui topbar style              *
+        ***********************************************-->
+    <style name="QDTopBar" parent="QMUI.TopBar">
+        <item name="qmui_topbar_height">45dp</item>
+        <item name="qmui_topbar_title_color">@color/white</item>
+        <item name="qmui_topbar_bg_color">@color/colorPrimary</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="qmui_topbar_image_btn_width">38dp</item>
+        <item name="qmui_topbar_text_btn_color_state_list">@color/white</item>
+    </style>
+
 
 </resources>
