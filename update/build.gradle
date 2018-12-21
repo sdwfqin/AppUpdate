@@ -1,9 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
-// gradlew update:clean update:build update:bintrayUpload
+// ./gradlew update:clean update:build update:bintrayUpload
 
-version = "1.0.2"
+version = "1.0.3"
 
 android {
     compileSdkVersion 28
@@ -12,7 +12,7 @@ android {
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion 28
-        versionCode 3
+        versionCode 4
         versionName version
     }
 

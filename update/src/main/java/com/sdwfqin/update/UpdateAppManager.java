@@ -242,6 +242,9 @@ public class UpdateAppManager {
          * @return Builder
          */
         public Builder setSavaPath(String savaPath) {
+            if(!savaPath.endsWith("/")){
+                throw new IllegalArgumentException("文件保存路径请务必用/结尾！！！！");
+            }
             mSavaPath = savaPath;
             return this;
         }
