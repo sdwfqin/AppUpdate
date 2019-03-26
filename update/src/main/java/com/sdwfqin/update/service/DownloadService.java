@@ -25,9 +25,9 @@ import com.sdwfqin.update.utils.AppUpdateUtils;
  */
 public class DownloadService extends Service {
 
-    private static final int NOTIFY_ID = 0x01;
+    private static final int NOTIFY_ID = 0x100009;
     private static final String CHANNEL_ID = "app_update_id";
-    private static final CharSequence CHANNEL_NAME = "app_update_channel";
+    private static final CharSequence CHANNEL_NAME = "版本更新";
 
     public static boolean isRunning = false;
     private NotificationManager mNotificationManager;
@@ -51,7 +51,7 @@ public class DownloadService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mNotificationManager = (NotificationManager) getSystemService(android.content.Context.NOTIFICATION_SERVICE);
+         mNotificationManager = (NotificationManager) getSystemService(android.content.Context.NOTIFICATION_SERVICE);
     }
 
     @Override
@@ -216,7 +216,6 @@ public class DownloadService extends Service {
             //App前台运行
             mNotificationManager.cancel(NOTIFY_ID);
             AppUpdateUtils.installApp(DownloadService.this, path, mFileProvider);
-
             close();
         }
     }
