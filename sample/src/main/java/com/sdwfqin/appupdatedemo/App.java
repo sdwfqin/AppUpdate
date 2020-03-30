@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.blankj.utilcode.util.Utils;
 import com.liulishuo.filedownloader.FileDownloader;
+import com.qmuiteam.qmui.arch.QMUISwipeBackActivityManager;
 
 /**
  * Created by Vector
@@ -17,5 +18,6 @@ public class App extends Application {
         Utils.init(this);
         // 初始化下载模块
         FileDownloader.setupOnApplicationOnCreate(this);
+        QMUISwipeBackActivityManager.init(this);
     }
 }

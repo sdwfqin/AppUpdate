@@ -14,14 +14,14 @@
 
 - 实现android版本更新
 - 强制更新在前台下载，普通更新在后台下载
-- 支持Android M、N、O
+- 支持Android M、N、O、P、Q
 
 ## 导入指南
 
 1. Gradle
 
     ``` gradle
-    implementation 'com.sdwfqin.quicklib:update:1.0.4'
+    implementation 'com.sdwfqin.quicklib:update:1.1.0'
     ```
 2. eclipse
 
@@ -111,7 +111,6 @@
 
 - 安装包MD5校验
 - 忽略升级
-- 静默升级
 
 ## License
 

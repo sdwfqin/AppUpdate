@@ -1,12 +1,10 @@
 package com.sdwfqin.update;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.sdwfqin.update.callback.FileDownloadCallback;
 
-import java.io.File;
 import java.io.Serializable;
-import java.util.Map;
 
 /**
  * app版本更新接口

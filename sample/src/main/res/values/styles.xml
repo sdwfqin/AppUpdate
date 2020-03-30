@@ -1,17 +1,19 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="QMUI.Compat.NoActionBar">
-
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-
-        <!--滑动返回用-->
-        <item name="android:windowIsTranslucent">true</item>
+    <style name="AppTheme" parent="QuickTheme">
 
         <!-- 配置qmui提供的theme -->
-        <item name="qmui_config_color_blue">@color/colorPrimary</item>
+        <item name="qmui_skin_support_topbar_bg">?attr/app_primary_color</item>
+        <item name="qmui_skin_support_topbar_separator_color">
+            ?attr/qmui_skin_support_color_separator
+        </item>
+        <item name="qmui_skin_support_topbar_title_color">?attr/app_text_white_color</item>
+        <item name="qmui_skin_support_topbar_subtitle_color">?attr/app_text_white_color</item>
+        <item name="qmui_skin_support_topbar_image_tint_color">?attr/app_content_bg_primary_color
+        </item>
         <item name="QMUITopBarStyle">@style/QDTopBar</item>
+
+        <item name="qmui_config_color_blue">@color/colorPrimary</item>
     </style>
 
     <!--**********************************************
@@ -19,11 +21,9 @@
         ***********************************************-->
     <style name="QDTopBar" parent="QMUI.TopBar">
         <item name="qmui_topbar_height">45dp</item>
-        <item name="qmui_topbar_title_color">@color/white</item>
-        <item name="qmui_topbar_bg_color">@color/colorPrimary</item>
+        <item name="qmui_bottomDividerHeight">0px</item>
         <item name="android:paddingLeft">0dp</item>
         <item name="qmui_topbar_image_btn_width">38dp</item>
-        <item name="qmui_topbar_text_btn_color_state_list">@color/white</item>
     </style>
 
 

@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.blankj.utilcode.util.SDCardUtils;
+import com.blankj.utilcode.util.PathUtils;
 import com.sdwfqin.appupdatedemo.R;
 import com.sdwfqin.appupdatedemo.http.UpdateAppHttpUtil;
 import com.sdwfqin.quicklib.base.BaseActivity;
@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity {
         im.setImageBitmap(AppUpdateUtils.drawableToBitmap(AppUpdateUtils.getAppIcon(this)));
 
         String[] perms = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        checkPermissions(perms, true, true, new OnPermissionCallback() {
+        initCheckPermissions(perms, true, true, new OnPermissionCallback() {
             @Override
             public void onSuccess() {
 
@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity {
         mUpdateVersionModel.setApkMd5("b97bea014531123f94c3ba7b7afbaad2");
         mUpdateVersionModel.setApkVersionName("3.0.0");
         mUpdateVersionModel.setApkVersionCode(1024);
-        mUpdateVersionModel.setApkUrl("http://47.93.116.159/haiyu.apk");
+        mUpdateVersionModel.setApkUrl("http://acj5.pc6.com/pc6_soure/2020-3-28/bc72f3c1e3d1bf6zug4tizBrqbKrHX.apk");
         mUpdateVersionModel.setUpdateTitle("更新测试");
         mUpdateVersionModel.setUpdateDes("1，添加删除信用卡接口。\r\n2，添加vip认证。\r\n3，区分自定义消费，一个小时不限制。\r\n4，添加放弃任务接口，小时内不生成。\r\n5，消费任务手动生成。");
         mUpdateVersionModel.setConstraint(false);
@@ -72,7 +72,7 @@ public class MainActivity extends BaseActivity {
                 // 实现httpManager接口的对象
                 .setHttpManager(new DefaultHttpManager())
                 .setFileProvider("com.sdwfqin.appupdatedemo.fileprovider")
-                .setSavaPath(SDCardUtils.getSDCardPaths().get(0) + "/AppUpdate/")
+                .setSavaPath(PathUtils.getExternalStoragePath() + "/AppUpdate/")
                 .build()
                 .update();
     }
@@ -91,7 +91,7 @@ public class MainActivity extends BaseActivity {
                 // 实现httpManager接口的对象
                 .setHttpManager(new UpdateAppHttpUtil())
                 .setFileProvider("com.sdwfqin.appupdatedemo.fileprovider")
-                .setSavaPath(SDCardUtils.getSDCardPaths().get(0) + "/AppUpdate/")
+                .setSavaPath(PathUtils.getExternalStoragePath() + "/AppUpdate/")
                 .build()
                 .update();
     }

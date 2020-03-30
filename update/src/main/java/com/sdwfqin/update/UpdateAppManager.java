@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
-import android.support.v4.app.FragmentActivity;
+import androidx.annotation.DrawableRes;
+import androidx.fragment.app.FragmentActivity;
 import android.util.Log;
 
 import com.sdwfqin.update.callback.UpdateCallback;
