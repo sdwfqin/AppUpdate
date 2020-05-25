@@ -60,7 +60,7 @@
             // FileProvider
             .setFileProvider("com.sdwfqin.appupdatedemo.fileprovider")
             // 文件下载路径（必须“/”结尾）
-            .setSavaPath(SDCardUtils.getSDCardPaths().get(0) + "/AppUpdate/")
+            .setSavaPath(PathUtils.getExternalStoragePath() + "/AppUpdate/")
             .build()
             .update();
     ```
@@ -96,7 +96,7 @@
     默认的Apk下载`DefaultHttpManager`为可选，**如需使用需添加下面的依赖,并且在`Application`中初始化下载`FileDownloader.setupOnApplicationOnCreate(this);`**。如果自行实现下载接口，可参考`DefaultHttpManager`，新建一个类实现`HttpManager`中的方法即可，**注意，请务必确保回调接口在主线程中掉用**。
 
     ``` gradle
-    implementation 'com.liulishuo.filedownloader:library:1.7.5'
+    implementation 'com.liulishuo.filedownloader:library:1.7.7'
     ```
     
 4. 如果在Android P中出现`cleartext traffic permitted`错误
