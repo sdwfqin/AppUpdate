@@ -2,12 +2,10 @@ package com.sdwfqin.appupdatedemo.ui;
 
 import android.Manifest;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.PathUtils;
-import com.sdwfqin.appupdatedemo.R;
+import com.sdwfqin.appupdatedemo.databinding.ActivityMainBinding;
 import com.sdwfqin.appupdatedemo.http.UpdateAppHttpUtil;
 import com.sdwfqin.quicklib.base.BaseActivity;
 import com.sdwfqin.update.DefaultHttpManager;
@@ -16,22 +14,21 @@ import com.sdwfqin.update.model.UpdateVersionModel;
 import com.sdwfqin.update.utils.AppUpdateUtils;
 import com.sdwfqin.update.utils.DrawableUtil;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     private UpdateVersionModel mUpdateVersionModel;
 
     @Override
-    protected int getLayout() {
-        return R.layout.activity_main;
+    protected ActivityMainBinding getViewBinding() {
+        return ActivityMainBinding.inflate(getLayoutInflater());
     }
 
     @Override
     protected void initEventAndData() {
 
-        DrawableUtil.setTextSolidTheme((Button) findViewById(R.id.btn_default));
-        DrawableUtil.setTextSolidTheme((Button) findViewById(R.id.btn_constraint));
-        ImageView im = (ImageView) findViewById(R.id.iv);
-        im.setImageBitmap(AppUpdateUtils.drawableToBitmap(AppUpdateUtils.getAppIcon(this)));
+        DrawableUtil.setTextSolidTheme(mBinding.btnDefault);
+        DrawableUtil.setTextSolidTheme(mBinding.btnConstraint);
+        mBinding.iv.setImageBitmap(AppUpdateUtils.drawableToBitmap(AppUpdateUtils.getAppIcon(this)));
 
         String[] perms = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
         initCheckPermissions(perms, true, true, new OnPermissionCallback() {
