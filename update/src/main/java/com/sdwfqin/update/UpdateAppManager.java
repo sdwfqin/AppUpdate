@@ -41,7 +41,7 @@ public class UpdateAppManager {
     /**
      * 文件保存路径
      */
-    private String mSavaPath;
+    private String mSavePath;
 
     private UpdateAppManager(Builder builder) {
         mActivity = builder.getActivity();
@@ -51,7 +51,7 @@ public class UpdateAppManager {
         mThemeColor = builder.getThemeColor();
         mTopPic = builder.getTopPic();
         mFileProvider = builder.getFileProvider();
-        mSavaPath = builder.getSavaPath();
+        mSavePath = builder.getSavePath();
 
         //添加信息
         fillUpdateAppData();
@@ -64,7 +64,7 @@ public class UpdateAppManager {
         mUpdateApp = new UpdateAppModel();
         mUpdateApp.setHttpManager(mHttpManager);
         mUpdateApp.setFileProvider(mFileProvider);
-        mUpdateApp.setSavaPath(mSavaPath);
+        mUpdateApp.setSavePath(mSavePath);
     }
 
     /**
@@ -139,7 +139,7 @@ public class UpdateAppManager {
         /**
          * 文件保存路径
          */
-        private String mSavaPath;
+        private String mSavePath;
 
         private Activity getActivity() {
             return mActivity;
@@ -230,8 +230,8 @@ public class UpdateAppManager {
             return this;
         }
 
-        private String getSavaPath() {
-            return mSavaPath;
+        private String getSavePath() {
+            return mSavePath;
         }
 
         /**
@@ -241,11 +241,11 @@ public class UpdateAppManager {
          *
          * @return Builder
          */
-        public Builder setSavaPath(String savaPath) {
+        public Builder setSavePath(String savaPath) {
             if(!savaPath.endsWith("/")){
                 throw new IllegalArgumentException("文件保存路径请务必用/结尾！！！！");
             }
-            mSavaPath = savaPath;
+            mSavePath = savaPath;
             return this;
         }
 

@@ -13,6 +13,8 @@ import android.os.Build;
 import androidx.core.content.FileProvider;
 import android.util.DisplayMetrics;
 
+import com.sdwfqin.update.R;
+
 import java.io.File;
 import java.math.BigDecimal;
 
@@ -59,7 +61,7 @@ public class AppUpdateUtils {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        return null;
+        return context.getDrawable(R.mipmap.lib_update_app_update_icon);
     }
 
     public static Bitmap drawableToBitmap(Drawable drawable) {

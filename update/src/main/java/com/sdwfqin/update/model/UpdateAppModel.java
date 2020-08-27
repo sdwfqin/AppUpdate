@@ -16,7 +16,7 @@ public class UpdateAppModel implements Serializable {
     /**
      * 文件保存路径
      */
-    private String savaPath;
+    private String savePath;
     /**
      * Android N及以上版本需要设置FILE_PROVIDER
      */
@@ -42,12 +42,12 @@ public class UpdateAppModel implements Serializable {
         this.httpManager = httpManager;
     }
 
-    public String getSavaPath() {
-        return savaPath;
+    public String getSavePath() {
+        return savePath;
     }
 
-    public void setSavaPath(String savaPath) {
-        this.savaPath = savaPath;
+    public void setSavePath(String savePath) {
+        this.savePath = savePath;
     }
 
     public String getFileProvider() {

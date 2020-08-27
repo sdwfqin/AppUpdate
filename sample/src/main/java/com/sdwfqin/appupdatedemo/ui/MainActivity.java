@@ -31,7 +31,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         mBinding.iv.setImageBitmap(AppUpdateUtils.drawableToBitmap(AppUpdateUtils.getAppIcon(this)));
 
         String[] perms = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        initCheckPermissions(perms, true, true, new OnPermissionCallback() {
+        initCheckPermissions(perms, new OnPermissionCallback() {
             @Override
             public void onSuccess() {
 
@@ -69,7 +69,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                 // 实现httpManager接口的对象
                 .setHttpManager(new DefaultHttpManager())
                 .setFileProvider("com.sdwfqin.appupdatedemo.fileprovider")
-                .setSavaPath(PathUtils.getExternalStoragePath() + "/AppUpdate/")
+                .setSavePath(PathUtils.getAppDataPathExternalFirst() + "/AppUpdate/")
                 .build()
                 .update();
     }
@@ -88,7 +88,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                 // 实现httpManager接口的对象
                 .setHttpManager(new UpdateAppHttpUtil())
                 .setFileProvider("com.sdwfqin.appupdatedemo.fileprovider")
-                .setSavaPath(PathUtils.getExternalStoragePath() + "/AppUpdate/")
+                .setSavePath(PathUtils.getAppDataPathExternalFirst() + "/AppUpdate/")
                 .build()
                 .update();
     }

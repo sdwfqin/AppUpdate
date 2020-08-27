@@ -118,9 +118,9 @@ public class DownloadService extends Service {
             stop(contentText);
             return;
         }
-        String fileName = AppUpdateUtils.getAppName(getApplicationContext()) + "_" + versionModel.getApkVersionCode() + ".apk";
+        String fileName = AppUpdateUtils.getAppName(getApplicationContext()) + "_" + versionModel.getApkVersionName() + ".apk";
 
-        updateApp.getHttpManager().download(apkUrl, updateApp.getSavaPath(), fileName, new FileDownloadCallBack(updateApp.getVersionModel(), callback));
+        updateApp.getHttpManager().download(apkUrl, updateApp.getSavePath(), fileName, new FileDownloadCallBack(updateApp.getVersionModel(), callback));
     }
 
     private void stop(String contentText) {

@@ -1,19 +1,16 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 
 // ./gradlew update:clean update:build update:bintrayUpload
 
-version = "1.1.0"
-
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion rootProject.ext.androidVersion.compileSdkVersion
+    buildToolsVersion rootProject.ext.androidVersion.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 29
-        versionCode 6
-        versionName version
+        minSdkVersion rootProject.ext.androidVersion.minSdkVersion
+        targetSdkVersion rootProject.ext.androidVersion.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
     }
 
     buildTypes {
@@ -31,24 +28,12 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.liulishuo.filedownloader:library:1.7.7'
 }
 
-Properties properties = new Properties()
-// 加载本地配置
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-publish {
-    userOrg = properties.getProperty("bintray.user")
-    repoName = 'quicklib'
-    groupId = 'com.sdwfqin.quicklib'
-    artifactId = 'update'
-    publishVersion = version
-    licences = ['Apache-2.0']
-    uploadName = 'update'
-    desc = 'Android App升级组件'
-    website = 'https://github.com/sdwfqin/AppUpdate'
-    bintrayUser = properties.getProperty("bintray.user")
-    bintrayKey = properties.getProperty("bintray.apikey")
-    dryRun = false
+// deploy
+File deployConfig = rootProject.file('gradle/deploy.properties')
+if (deployConfig.exists()) {
+    apply from: rootProject.file('gradle/deploy.gradle')
 }

@@ -49,3 +49,4 @@ captures/
 /build
 /captures
 .externalNativeBuild
+/gradle/deploy.properties

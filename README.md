@@ -21,7 +21,7 @@
 1. Gradle
 
     ``` gradle
-    implementation 'com.sdwfqin.quicklib:update:1.1.0'
+    implementation 'com.sdwfqin.quicklib:update:1.1.1'
     ```
 2. eclipse
 
@@ -60,7 +60,7 @@
             // FileProvider
             .setFileProvider("com.sdwfqin.appupdatedemo.fileprovider")
             // 文件下载路径（必须“/”结尾）
-            .setSavaPath(PathUtils.getExternalStoragePath() + "/AppUpdate/")
+            .setSavePath(PathUtils.getExternalStoragePath() + "/AppUpdate/")
             .build()
             .update();
     ```
